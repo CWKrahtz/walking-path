@@ -35,7 +35,7 @@ class FirebaseAuthManager: ObservableObject {
     }
     
     func signup () {
-        
+        self.errorMessage = ""
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             
             if error != nil {

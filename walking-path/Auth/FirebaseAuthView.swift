@@ -23,20 +23,20 @@ struct FirebaseAuthView: View {
                 .padding()
             
             Text(firebaseAuthManager.errorMessage)
+                .foregroundColor(.red)
             
             
             Button(action: {
                 firebaseAuthManager.signup()
             }) {
                Text("Create User")
-            }
+            }.padding()
             
             Button(action: {
                 firebaseAuthManager.login()
             }) {
                Text("Login User")
-            }
-        }
+            }        }
     }
 }
 
