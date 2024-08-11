@@ -19,6 +19,9 @@
 		3F7318902C63DF47002220CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 3F73188F2C63DF47002220CA /* FirebaseFirestore */; };
 		3F7318932C63E1D5002220CA /* FirebaseAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7318922C63E1D5002220CA /* FirebaseAuthView.swift */; };
 		3F7318952C63E1E9002220CA /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7318942C63E1E9002220CA /* FirebaseAuthManager.swift */; };
+		3FC7A7132C68AB4D0071DCAA /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7122C68AB4C0071DCAA /* HealthView.swift */; };
+		3FC7A7172C68AB8B0071DCAA /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7162C68AB8B0071DCAA /* HealthManager.swift */; };
+		3FC7A7192C68B48A0071DCAA /* HealthStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7182C68B48A0071DCAA /* HealthStat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		3F73188A2C63DC4C002220CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3F7318922C63E1D5002220CA /* FirebaseAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthView.swift; sourceTree = "<group>"; };
 		3F7318942C63E1E9002220CA /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		3FC7A7122C68AB4C0071DCAA /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		3FC7A7162C68AB8B0071DCAA /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		3FC7A7182C68B48A0071DCAA /* HealthStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 		3F73185E2C63DB93002220CA /* walking-path */ = {
 			isa = PBXGroup;
 			children = (
+				3FC7A7112C68AB230071DCAA /* Health */,
 				3F7318912C63E1B3002220CA /* Auth */,
 				3F73188A2C63DC4C002220CA /* GoogleService-Info.plist */,
 				3F73185F2C63DB93002220CA /* walking_pathApp.swift */,
@@ -148,6 +155,16 @@
 				3F7318942C63E1E9002220CA /* FirebaseAuthManager.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		3FC7A7112C68AB230071DCAA /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				3FC7A7122C68AB4C0071DCAA /* HealthView.swift */,
+				3FC7A7162C68AB8B0071DCAA /* HealthManager.swift */,
+				3FC7A7182C68B48A0071DCAA /* HealthStat.swift */,
+			);
+			path = Health;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,8 +306,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F7318932C63E1D5002220CA /* FirebaseAuthView.swift in Sources */,
+				3FC7A7172C68AB8B0071DCAA /* HealthManager.swift in Sources */,
+				3FC7A7192C68B48A0071DCAA /* HealthStat.swift in Sources */,
 				3F7318622C63DB93002220CA /* ContentView.swift in Sources */,
 				3F7318952C63E1E9002220CA /* FirebaseAuthManager.swift in Sources */,
+				3FC7A7132C68AB4D0071DCAA /* HealthView.swift in Sources */,
 				3F7318602C63DB93002220CA /* walking_pathApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,10 +476,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"walking-path/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = YES;
+				DEVELOPMENT_TEAM = 3C4865S69C;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We require access to your ealth data inorder to provide valide data to you.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -495,10 +516,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"walking-path/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = YES;
+				DEVELOPMENT_TEAM = 3C4865S69C;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "We require access to your ealth data inorder to provide valide data to you.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
