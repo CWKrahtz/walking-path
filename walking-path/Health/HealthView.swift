@@ -21,7 +21,6 @@ struct HealthView: View {
                     Image(steps.image)
                 }
                 .background(steps.color)
-                .padding()
             }
         }
         .padding()

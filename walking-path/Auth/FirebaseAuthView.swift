@@ -29,14 +29,15 @@ struct FirebaseAuthView: View {
             Button(action: {
                 firebaseAuthManager.signup()
             }) {
-               Text("Create User")
+                Text("Create User")
             }.padding()
             
             Button(action: {
                 firebaseAuthManager.login()
             }) {
-               Text("Login User")
-            }        }
+                Text("Login User")
+            }
+        }
     }
 }
 

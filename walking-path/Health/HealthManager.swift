@@ -80,7 +80,7 @@ class HealthManager: ObservableObject {
                 title: "Total Steps",
                 amount: "\(stepCountValue.rounded(.towardZero))",
                 image: "figure.walk",
-                color: .green)
+                color: .gray)
             )
             
         }

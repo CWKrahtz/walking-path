@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        FirebaseAuthView()
-        HealthView()
+       // NavigationView {
+            FirebaseAuthView()
+             //   .navigationTitle("Login/Signup")
+            //HealthView()
+             //   .navigationTitle("Single/Dashboard View")
+        // }
     }
 }
 
