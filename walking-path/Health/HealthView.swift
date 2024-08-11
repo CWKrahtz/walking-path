@@ -12,7 +12,19 @@ struct HealthView: View {
     @ObservedObject var manager = HealthManager()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ForEach(manager.healthStats){steps in
+                VStack{
+                    Text("ForEach Loop")
+                    Text(steps.title)
+                    Text(steps.amount)
+                    Image(steps.image)
+                }
+                .background(steps.color)
+                .padding()
+            }
+        }
+        .padding()
     }
 }
 

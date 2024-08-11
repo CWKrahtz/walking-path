@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct Health: Identifiable {
+struct HealthStat: Identifiable {
     let id = UUID()
     let title: String //What is the health
-    let amount: Double
+    let amount: String
     let image: String
     let color: Color
 }

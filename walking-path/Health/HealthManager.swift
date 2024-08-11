@@ -15,6 +15,9 @@ class HealthManager: ObservableObject {
     //Set our variables
     let healthStore = HKHealthStore()
     
+    //access and update variable
+    @Published var healthStats: [HealthStat] = []
+    
     //runs when healthmanager is launched
     init() {
         authoriseHealthAccess()
@@ -42,12 +45,12 @@ class HealthManager: ObservableObject {
                     
                     print("Access granted to HealthKit")
                     //Start Accessing Our data
+                    getStepCounts()
                     
                 } catch {
                     print("Error handling HealthKit Access.")
                 }
             }
-            
             
         }
         
@@ -61,6 +64,7 @@ class HealthManager: ObservableObject {
         // timeframe - predicate (time perioud we want)
         let predicate = HKQuery.predicateForSamples(withStart: Calendar.current.startOfDay(for: Date()), end: Date())
         
+        //handling errors when get fails
         let query = HKStatisticsQuery(quantityType: steps, quantitySamplePredicate: predicate) {_, results, error in
             
             guard let quantity = results?.sumQuantity(), error == nil else {
@@ -69,9 +73,19 @@ class HealthManager: ObservableObject {
                 return
             }
             
+            //this is our step count
+            let stepCountValue = quantity.doubleValue(for: .count())
             
-                
+            self.healthStats.append(HealthStat(
+                title: "Total Steps",
+                amount: "\(stepCountValue.rounded(.towardZero))",
+                image: "figure.walk",
+                color: .green)
+            )
+            
         }
+        
+        healthStore.execute(query)
     }
     
 }
