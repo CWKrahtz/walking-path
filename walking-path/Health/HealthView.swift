@@ -13,14 +13,17 @@ struct HealthView: View {
     
     var body: some View {
         VStack {
-            ForEach(manager.healthStats){steps in
+            ForEach(manager.healthStats){tracking in
                 VStack{
-                    Text("ForEach Loop")
-                    Text(steps.title)
-                    Text(steps.amount)
-                    Image(steps.image)
+                    Text(tracking.title)
+                        .foregroundStyle(Color.white)
+                    Text(tracking.amount)
+                        .foregroundStyle(Color.white)
+                    Image(systemName: tracking.image)
+                        .foregroundStyle(Color.white)
                 }
-                .background(steps.color)
+                .background(tracking.color)
+                .padding()
             }
         }
         .padding()
