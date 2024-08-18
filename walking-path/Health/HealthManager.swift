@@ -93,8 +93,8 @@ class HealthManager: ObservableObject {
                 color: .secondary)
             )
         }
-        //activity
         
+        //activity
         let activityQuery = HKStatisticsQuery(quantityType: activity, quantitySamplePredicate: predicate) {_, results, error in
             guard let quantity = results?.sumQuantity(), error == nil else {
                 print("Error getting burned kcal counts: \(error?.localizedDescription)")
@@ -102,8 +102,8 @@ class HealthManager: ObservableObject {
                 return
             }
             
-            //this is our step count
-            let kcalBurned = quantity
+            //this is our nurned count
+            let kcalBurned = quantity.doubleValue(for: .smallCalorie())
             
             self.healthStats.append(HealthStat(
                 title: "Active Energy",
@@ -122,8 +122,8 @@ class HealthManager: ObservableObject {
                 return
             }
             
-            //this is our step count
-            let kcal = quantity
+            //this is our resting kcal count
+            let kcal = quantity.doubleValue(for: .smallCalorie())
             
             self.healthStats.append(HealthStat(
                 title: "Resting Energy",
@@ -141,12 +141,18 @@ class HealthManager: ObservableObject {
                 return
             }
             
-            //this is our step count
-            let distance = quantity
+            guard let test = results?.sumQuantity(), error == nil else {
+                print("Error getting walk and run counts: \(error?.localizedDescription)")
+                
+                return
+            }
+            
+            //this is our walk/run count
+            let distance = quantity.doubleValue(for: .meter())
             
             self.healthStats.append(HealthStat(
                 title: "Walking + Running",
-                amount: "\(distance) km",
+                amount: "\(distance.rounded()) m",
                 image: "flame.fill",
                 color: .secondary)
             )
@@ -159,13 +165,12 @@ class HealthManager: ObservableObject {
                 
                 return
             }
-            
-            //this is our step count
-            let floors = quantity
+            //this is our floor count
+            let floors = quantity.doubleValue(for: .count())
             
             self.healthStats.append(HealthStat(
                 title: "Flights Climbed",
-                amount: "\(floors) floor",
+                amount: "\(floors)",
                 image: "flame.fill",
                 color: .secondary)
             )
