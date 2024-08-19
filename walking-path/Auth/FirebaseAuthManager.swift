@@ -29,6 +29,7 @@ class FirebaseAuthManager: ObservableObject {
             if authResult != nil {
                 self.isAuthenticated = true
                 print("Logged in USER: \(authResult!.user.uid)")
+                print(self.isAuthenticated)
             }
             
         }

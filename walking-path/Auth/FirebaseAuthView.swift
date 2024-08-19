@@ -13,8 +13,8 @@ struct FirebaseAuthView: View {
     
     var body: some View {
         VStack{
-            Text("Firebase Auth")
-                .padding()
+//            Text("Firebase Auth")
+//                .padding()
             
             TextField("Email", text: $firebaseAuthManager.email)
                 .padding()

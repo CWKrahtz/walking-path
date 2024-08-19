@@ -11,15 +11,15 @@ struct HealthView: View {
     
     @ObservedObject var manager = HealthManager()
     
+    //var to toggle settings sheet
+    //@State = useState -> Can Update Values
+    @State var showSettings: Bool = false
+    
     var body: some View {
         
         NavigationView {
             
             VStack {
-                
-                Text("")
-                    .navigationTitle("Dashboard")
-                
                 List {
                     
                     ForEach(manager.healthStats){ item in
@@ -31,8 +31,20 @@ struct HealthView: View {
                         }//NavigationLink - end
                     }//ForEach - end
                 }//List - end
+                .navigationTitle("Dashboard")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(trailing: Button(action: {
+                    //open settings/about
+                    showSettings.toggle()
+                }){
+                    Image(systemName: "gearshape")
+                        .foregroundColor(.primary)
+                })
             }//VStack
         }//navigationView - end
+        .sheet(isPresented: $showSettings){ // $ -> Tells variable that it can change
+            SettingsSheet()
+        }
         
 //        VStack {
 //            ForEach(manager.healthStats){tracking in
