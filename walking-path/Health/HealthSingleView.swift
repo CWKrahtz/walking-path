@@ -12,16 +12,60 @@ struct HealthSingleView: View {
     var item: HealthStat?
     
     var body: some View {
-        VStack{
-            Text(item!.title)
-                .foregroundStyle(Color.white)
-            Text(item!.amount)
-                .foregroundStyle(Color.white)
-            Image(systemName: item!.image)
-                .foregroundStyle(Color.white)
+        NavigationView {
+        
+            VStack{
+                Text("")
+                    .navigationTitle(item!.title)
+                //Filtering
+                HStack{
+                    Text("D")
+                    Text("W")
+                    Text("M")
+                    Text("Y")
+                }
+                .frame(maxWidth: .infinity)
+                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                .padding()
+                
+                VStack{
+                    Text("Avarage")
+                        .foregroundStyle(Color.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack{
+                        Text("2000")
+                        Text(item!.title)
+                            .foregroundStyle(Color.secondary)
+                        Image(systemName: item!.image)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding()
+                
+                VStack{
+                    //Grid + data
+                }
+                .frame(width: 250, height: 250)
+                .background(item!.color)
+                
+//                VStack{
+                    //            Text(item!.title)
+                    //                .foregroundStyle(Color.white)
+                    //            Text(item!.amount)
+                    //                .foregroundStyle(Color.white)
+                    //            Image(systemName: item!.image)
+                    //                .foregroundStyle(Color.white)
+//                }//VStack - inner end
+//                .background(.secondary)
+//                .padding()
+                
+                Spacer()
+                
+            }// VStack - outer end
+            
         }
-        .background(item!.color)
-        .padding()    }
+    }//body - end
+        
 }
 
 #Preview {
