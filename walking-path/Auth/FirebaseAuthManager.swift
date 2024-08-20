@@ -18,6 +18,9 @@ class FirebaseAuthManager: ObservableObject {
     
     func login () {
         
+//        do { try Auth.auth().signOut() }
+//        catch { print("already logged out") }
+        
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             
             if error != nil {

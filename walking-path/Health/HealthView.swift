@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct HealthView: View {
     
     @ObservedObject var manager = HealthManager()
+    
+    func signOut(){
+        var firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        }
+        catch{
+            print("Suer already signed out")
+        }
+    }
     
     //var to toggle settings sheet
     //@State = useState -> Can Update Values
@@ -38,6 +49,13 @@ struct HealthView: View {
                     showSettings.toggle()
                 }){
                     Image(systemName: "gearshape")
+                        .foregroundColor(.primary)
+                })
+                .navigationBarItems(leading: Button(action: {
+                    //open settings/about
+                    signOut()
+                }){
+                    Image(systemName: "signpost.left")
                         .foregroundColor(.primary)
                 })
             }//VStack

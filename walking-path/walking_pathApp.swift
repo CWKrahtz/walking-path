@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseCore
 import Firebase
+import FirebaseAuth
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
@@ -21,28 +22,39 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct walking_pathApp: App {
     
+    @State var isLoggedin: Bool = false
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 //    init() {
 //        FirebaseApp.configure()
 //    }
-    
-    @ObservedObject var firebaseAuthManager = FirebaseAuthManager()
     
     var body: some Scene {
         WindowGroup {
 //            ContentView()
             
             //if is onboarded is false show onboarding screen else show login screen
-            
-            if(firebaseAuthManager.isAuthenticated == false){
-                HealthView()
-            } else {
-                FirebaseAuthView()
-                    .environmentObject(firebaseAuthManager)
+            ZStack{
+                if(isLoggedin){
+                    HealthView()
+                } else {
+                    FirebaseAuthView()
+                }//if/else - end
+            }//ZStack - end
+            .onAppear{
+                var handler = Auth.auth().addStateDidChangeListener { auth, user in
+                    if user != nil {
+                        self.isLoggedin = true
+                        print("Authenticated")
+                    }
+                    else {
+                        self.isLoggedin = false
+                        print("Not Authenticated")
+                    }
+                }
             }
-            
-        }
-    }
+        }//window - end
+    }//body - end
 }
 
 

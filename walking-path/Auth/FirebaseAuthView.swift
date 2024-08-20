@@ -13,8 +13,8 @@ struct FirebaseAuthView: View {
     
     var body: some View {
         VStack{
-//            Text("Firebase Auth")
-//                .padding()
+            Text("Login / Registration")
+                .padding()
             
             TextField("Email", text: $firebaseAuthManager.email)
                 .padding()
@@ -30,13 +30,16 @@ struct FirebaseAuthView: View {
                 firebaseAuthManager.signup()
             }) {
                 Text("Create User")
-            }.padding()
+            }
+            .padding()
             
             Button(action: {
                 firebaseAuthManager.login()
             }) {
                 Text("Login User")
             }
+            
+            Spacer()
         }
     }
 }
