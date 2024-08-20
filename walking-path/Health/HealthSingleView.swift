@@ -17,6 +17,7 @@ struct HealthSingleView: View {
             VStack{
                 Text("")
                     .navigationTitle(item!.title)
+                    .navigationBarTitleDisplayMode(.inline)
                 //Filtering
                 HStack{
                     Text("D")
@@ -33,7 +34,7 @@ struct HealthSingleView: View {
                         .foregroundStyle(Color.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     HStack{
-                        Text("2000")
+                        Text(item!.amount)
                         Text(item!.title)
                             .foregroundStyle(Color.secondary)
                         Image(systemName: item!.image)

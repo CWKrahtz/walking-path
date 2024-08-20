@@ -103,11 +103,11 @@ class HealthManager: ObservableObject {
             }
             
             //this is our nurned count
-            let kcalBurned = quantity.doubleValue(for: .smallCalorie())
+            let kcalBurned = quantity.doubleValue(for: .largeCalorie())
             
             self.healthStats.append(HealthStat(
                 title: "Active Energy",
-                amount: "\(kcalBurned) kcal",
+                amount: "\(kcalBurned.rounded()) kcal",
                 image: "flame.fill",
                 color: .secondary)
             )
@@ -123,12 +123,12 @@ class HealthManager: ObservableObject {
             }
             
             //this is our resting kcal count
-            let kcal = quantity.doubleValue(for: .smallCalorie())
+            let kcal = quantity.doubleValue(for: .largeCalorie())
             
             self.healthStats.append(HealthStat(
                 title: "Resting Energy",
-                amount: "\(kcal) kcal",
-                image: "flame.fill",
+                amount: "\(kcal.rounded()) kcal",
+                image: "flame",
                 color: .secondary)
             )
         }
@@ -153,7 +153,7 @@ class HealthManager: ObservableObject {
             self.healthStats.append(HealthStat(
                 title: "Walking + Running",
                 amount: "\(distance.rounded()) m",
-                image: "flame.fill",
+                image: "figure.run",
                 color: .secondary)
             )
         }
@@ -171,7 +171,7 @@ class HealthManager: ObservableObject {
             self.healthStats.append(HealthStat(
                 title: "Flights Climbed",
                 amount: "\(floors)",
-                image: "flame.fill",
+                image: "figure.stairs",
                 color: .secondary)
             )
         }
