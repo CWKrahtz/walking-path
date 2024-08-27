@@ -141,12 +141,6 @@ class HealthManager: ObservableObject {
                 return
             }
             
-            guard let test = results?.sumQuantity(), error == nil else {
-                print("Error getting walk and run counts: \(error?.localizedDescription)")
-                
-                return
-            }
-            
             //this is our walk/run count
             let distance = quantity.doubleValue(for: .meter())
             

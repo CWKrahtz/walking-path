@@ -22,6 +22,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct walking_pathApp: App {
     
+    //AppStorage Variable to determine if the user needs to be onboarded or not
+    @AppStorage("isOnboarded") var isOnboarded: Bool = false
+    
+    //Check if user is loged in or not
     @State var isLoggedin: Bool = false
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -31,28 +35,33 @@ struct walking_pathApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            ContentView()
             
-            //if is onboarded is false show onboarding screen else show login screen
-            ZStack{
-                if(isLoggedin){
-                    HealthView()
-                } else {
-                    FirebaseAuthView()
-                }//if/else - end
-            }//ZStack - end
-            .onAppear{
-                var handler = Auth.auth().addStateDidChangeListener { auth, user in
-                    if user != nil {
-                        self.isLoggedin = true
-                        print("Authenticated")
-                    }
-                    else {
-                        self.isLoggedin = false
-                        print("Not Authenticated")
-                    }
-                }
+            //If onboarding is true  -> display login/dashboard
+            //If onboarding is false -> show Onboarding Screen
+            if(isOnboarded){
+                ZStack{
+                       if(isLoggedin){
+                           HealthView()
+                       } else {
+                           FirebaseAuthView()
+                       }//if/else - end
+                   }//ZStack - end
+                   .onAppear{
+                       var handler = Auth.auth().addStateDidChangeListener { auth, user in
+                           if user != nil {
+                               self.isLoggedin = true
+                               print("Authenticated")
+                           }
+                           else {
+                               self.isLoggedin = false
+                               print("Not Authenticated")
+                           }
+                       }
+                   }//onAppear - end
+            } else {
+                OnboardingView()
             }
+            
         }//window - end
     }//body - end
 }
