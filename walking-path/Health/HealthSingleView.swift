@@ -18,19 +18,9 @@ struct HealthSingleView: View {
                 Text("")
                     .navigationTitle(item!.title)
                     .navigationBarTitleDisplayMode(.inline)
-                //Filtering
-                HStack{
-                    Text("D")
-                    Text("W")
-                    Text("M")
-                    Text("Y")
-                }
-                .frame(maxWidth: .infinity)
-                .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-                .padding()
                 
                 VStack{
-                    Text("Avarage")
+                    Text("Total of")
                         .foregroundStyle(Color.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     HStack{

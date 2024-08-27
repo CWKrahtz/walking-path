@@ -23,6 +23,7 @@
 		3F777F072C73AC1E00FD22C8 /* SettingsSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777F062C73AC1E00FD22C8 /* SettingsSheet.swift */; };
 		3F777F0A2C73B01800FD22C8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777F092C73B01800FD22C8 /* OnboardingView.swift */; };
 		3F9EED0C2C7DD11800A412DF /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EED0B2C7DD11800A412DF /* OnboardingCardView.swift */; };
+		3F9EED142C7DF16000A412DF /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EED132C7DF16000A412DF /* TimePeriod.swift */; };
 		3FC7A7132C68AB4D0071DCAA /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7122C68AB4C0071DCAA /* HealthView.swift */; };
 		3FC7A7172C68AB8B0071DCAA /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7162C68AB8B0071DCAA /* HealthManager.swift */; };
 		3FC7A7192C68B48A0071DCAA /* HealthStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7182C68B48A0071DCAA /* HealthStat.swift */; };
@@ -64,6 +65,7 @@
 		3F777F062C73AC1E00FD22C8 /* SettingsSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSheet.swift; sourceTree = "<group>"; };
 		3F777F092C73B01800FD22C8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		3F9EED0B2C7DD11800A412DF /* OnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
+		3F9EED132C7DF16000A412DF /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
 		3FC7A7122C68AB4C0071DCAA /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
 		3FC7A7162C68AB8B0071DCAA /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		3FC7A7182C68B48A0071DCAA /* HealthStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStat.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				3FC7A7182C68B48A0071DCAA /* HealthStat.swift */,
 				3F528D652C720E81002983B0 /* HealthSingleView.swift */,
 				3F777F062C73AC1E00FD22C8 /* SettingsSheet.swift */,
+				3F9EED132C7DF16000A412DF /* TimePeriod.swift */,
 			);
 			path = Health;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				3F7318622C63DB93002220CA /* ContentView.swift in Sources */,
 				3F7318952C63E1E9002220CA /* FirebaseAuthManager.swift in Sources */,
 				3F777F072C73AC1E00FD22C8 /* SettingsSheet.swift in Sources */,
+				3F9EED142C7DF16000A412DF /* TimePeriod.swift in Sources */,
 				3FC7A7132C68AB4D0071DCAA /* HealthView.swift in Sources */,
 				3F7318602C63DB93002220CA /* walking_pathApp.swift in Sources */,
 			);

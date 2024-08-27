@@ -49,7 +49,7 @@ class HealthManager: ObservableObject {
                     
                     print("Access granted to HealthKit")
                     //Start Accessing Our data
-                    getStepCounts()
+                    getStepCounts(for: TimePeriod.day)
                     
                 } catch {
                     print("Error handling HealthKit Access.")
@@ -63,111 +63,112 @@ class HealthManager: ObservableObject {
     //go get the data.
     
     //can refactor code - less code
-    func getStepCounts() {
+    //go get the data.
+    func getStepCounts(for period: TimePeriod) {
+        // Clear the list before adding new data
+        DispatchQueue.main.async {
+            self.healthStats.removeAll()
+        }
+        
         let steps = HKQuantityType(.stepCount) // what we want to access
         let activity = HKQuantityType(.activeEnergyBurned)
         let resting = HKQuantityType(.basalEnergyBurned)
         let walkRun = HKQuantityType(.distanceWalkingRunning)
         let floor = HKQuantityType(.flightsClimbed)
         
-        // timeframe - predicate (time perioud we want)
-        let predicate = HKQuery.predicateForSamples(withStart: Calendar.current.startOfDay(for: Date()), end: Date())
+        let dateRange = dateRange(for: period)
         
-        //handling errors when get fails
+        // timeframe - predicate (time period we want)
+        let predicate = HKQuery.predicateForSamples(withStart: dateRange.startDate, end: dateRange.endDate, options: .strictStartDate)
         
-        //steps
-        let stepQuery = HKStatisticsQuery(quantityType: steps, quantitySamplePredicate: predicate) {_, results, error in
+        // steps
+        let stepQuery = HKStatisticsQuery(quantityType: steps, quantitySamplePredicate: predicate) { _, results, error in
             guard let quantity = results?.sumQuantity(), error == nil else {
-                print("Error getting step counts: \(error?.localizedDescription)")
-                
+                print("Error getting step counts: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             
-            //this is our step count
             let stepCountValue = quantity.doubleValue(for: .count())
-            
-            self.healthStats.append(HealthStat(
-                title: "Steps",
-                amount: "\(stepCountValue.rounded(.towardZero)) steps",
-                image: "figure.walk",
-                color: .secondary)
-            )
+            DispatchQueue.main.async {
+                self.healthStats.append(HealthStat(
+                    title: "Steps",
+                    amount: "\(stepCountValue.rounded(.towardZero)) steps",
+                    image: "figure.walk",
+                    color: .secondary)
+                )
+            }
         }
         
-        //activity
-        let activityQuery = HKStatisticsQuery(quantityType: activity, quantitySamplePredicate: predicate) {_, results, error in
+        // activity
+        let activityQuery = HKStatisticsQuery(quantityType: activity, quantitySamplePredicate: predicate) { _, results, error in
             guard let quantity = results?.sumQuantity(), error == nil else {
-                print("Error getting burned kcal counts: \(error?.localizedDescription)")
-                
+                print("Error getting burned kcal counts: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             
-            //this is our nurned count
             let kcalBurned = quantity.doubleValue(for: .largeCalorie())
-            
-            self.healthStats.append(HealthStat(
-                title: "Active Energy",
-                amount: "\(kcalBurned.rounded()) kcal",
-                image: "flame.fill",
-                color: .secondary)
-            )
+            DispatchQueue.main.async {
+                self.healthStats.append(HealthStat(
+                    title: "Active Energy",
+                    amount: "\(kcalBurned.rounded()) kcal",
+                    image: "flame.fill",
+                    color: .secondary)
+                )
+            }
         }
         
-        //resting Energy
-        
-        let restingQuery = HKStatisticsQuery(quantityType: resting, quantitySamplePredicate: predicate) {_, results, error in
+        // resting energy
+        let restingQuery = HKStatisticsQuery(quantityType: resting, quantitySamplePredicate: predicate) { _, results, error in
             guard let quantity = results?.sumQuantity(), error == nil else {
-                print("Error getting resting kcal counts: \(error?.localizedDescription)")
-                
+                print("Error getting resting kcal counts: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             
-            //this is our resting kcal count
             let kcal = quantity.doubleValue(for: .largeCalorie())
-            
-            self.healthStats.append(HealthStat(
-                title: "Resting Energy",
-                amount: "\(kcal.rounded()) kcal",
-                image: "flame",
-                color: .secondary)
-            )
+            DispatchQueue.main.async {
+                self.healthStats.append(HealthStat(
+                    title: "Resting Energy",
+                    amount: "\(kcal.rounded()) kcal",
+                    image: "flame",
+                    color: .secondary)
+                )
+            }
         }
         
-        //walkRun
-        let walkRunQuery = HKStatisticsQuery(quantityType: walkRun, quantitySamplePredicate: predicate) {_, results, error in
+        // walk/run distance
+        let walkRunQuery = HKStatisticsQuery(quantityType: walkRun, quantitySamplePredicate: predicate) { _, results, error in
             guard let quantity = results?.sumQuantity(), error == nil else {
-                print("Error getting walk and run counts: \(error?.localizedDescription)")
-                
+                print("Error getting walk and run counts: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             
-            //this is our walk/run count
             let distance = quantity.doubleValue(for: .meter())
-            
-            self.healthStats.append(HealthStat(
-                title: "Walking + Running",
-                amount: "\(distance.rounded()) m",
-                image: "figure.run",
-                color: .secondary)
-            )
+            DispatchQueue.main.async {
+                self.healthStats.append(HealthStat(
+                    title: "Walking + Running",
+                    amount: "\(distance.rounded()) m",
+                    image: "figure.run",
+                    color: .secondary)
+                )
+            }
         }
         
-        //floors
-        let floorQuery = HKStatisticsQuery(quantityType: floor, quantitySamplePredicate: predicate) {_, results, error in
+        // floors climbed
+        let floorQuery = HKStatisticsQuery(quantityType: floor, quantitySamplePredicate: predicate) { _, results, error in
             guard let quantity = results?.sumQuantity(), error == nil else {
-                print("Error getting floor counts: \(error?.localizedDescription)")
-                
+                print("Error getting floor counts: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
-            //this is our floor count
-            let floors = quantity.doubleValue(for: .count())
             
-            self.healthStats.append(HealthStat(
-                title: "Flights Climbed",
-                amount: "\(floors)",
-                image: "figure.stairs",
-                color: .secondary)
-            )
+            let floors = quantity.doubleValue(for: .count())
+            DispatchQueue.main.async {
+                self.healthStats.append(HealthStat(
+                    title: "Flights Climbed",
+                    amount: "\(floors)",
+                    image: "figure.stairs",
+                    color: .secondary)
+                )
+            }
         }
         
         healthStore.execute(stepQuery)
@@ -176,5 +177,6 @@ class HealthManager: ObservableObject {
         healthStore.execute(walkRunQuery)
         healthStore.execute(floorQuery)
     }
+
     
 }

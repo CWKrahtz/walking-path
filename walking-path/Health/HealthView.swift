@@ -11,6 +11,7 @@ import FirebaseAuth
 struct HealthView: View {
     
     @ObservedObject var manager = HealthManager()
+    @State private var selectedPeriod: TimePeriod = .day //default filter select
     
     func signOut(){
         var firebaseAuth = Auth.auth()
@@ -18,7 +19,7 @@ struct HealthView: View {
             try firebaseAuth.signOut()
         }
         catch{
-            print("Suer already signed out")
+            print("User already signed out")
         }
     }
     
@@ -29,18 +30,27 @@ struct HealthView: View {
     var body: some View {
         
         NavigationView {
-            
             VStack {
+                
+                //Filter
+                Picker("Select Time Period", selection: $selectedPeriod) 
+                {
+                    Text("Day").tag(TimePeriod.day)
+                    Text("Week").tag(TimePeriod.week)
+                    Text("Month").tag(TimePeriod.month)
+                    Text("Year").tag(TimePeriod.year)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
                 List {
-                    
-                    ForEach(manager.healthStats){ item in
-                        NavigationLink(destination:
-                                        HealthSingleView(item: item)){
+                    ForEach(manager.healthStats) { item in
+                        NavigationLink(destination: HealthSingleView(item: item)) {
                             HStack {
                                 Text(item.title)
                             }
-                        }//NavigationLink - end
-                    }//ForEach - end
+                        }
+                    }
                 }//List - end
                 .navigationTitle("Dashboard")
                 .navigationBarTitleDisplayMode(.inline)
@@ -59,6 +69,9 @@ struct HealthView: View {
                         .foregroundColor(.primary)
                 })
             }//VStack
+            .onChange(of: selectedPeriod) { _ in
+                manager.getStepCounts(for: selectedPeriod) // Call the new method
+            }
         }//navigationView - end
         .sheet(isPresented: $showSettings){ // $ -> Tells variable that it can change
             SettingsSheet()
