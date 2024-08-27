@@ -9,6 +9,7 @@
 //Observable object to access my health data.
 import Foundation
 import HealthKit
+import WidgetKit
 
 class HealthManager: ObservableObject {
     
@@ -61,7 +62,6 @@ class HealthManager: ObservableObject {
     }
     
     //go get the data.
-    
     //can refactor code - less code
     //go get the data.
     func getStepCounts(for period: TimePeriod) {
@@ -89,6 +89,9 @@ class HealthManager: ObservableObject {
             }
             
             let stepCountValue = quantity.doubleValue(for: .count())
+            
+            self.updateWidget(newSteps: stepCountValue)
+            
             DispatchQueue.main.async {
                 self.healthStats.append(HealthStat(
                     title: "Steps",
@@ -178,5 +181,19 @@ class HealthManager: ObservableObject {
         healthStore.execute(floorQuery)
     }
 
+    func updateWidget(newSteps: Double)
+    {
+        
+        let defaults = UserDefaults(suiteName: "group.co.za.openwindow.walking-path") // <-- points to the group
+        
+        defaults?.set(newSteps, forKey: "totalSteps")
+        
+        //trigger refresh
+        WidgetCenter.shared.reloadAllTimelines()
+        
+    }
     
 }
+
+
+

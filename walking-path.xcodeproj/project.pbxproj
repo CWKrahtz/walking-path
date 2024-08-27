@@ -24,6 +24,14 @@
 		3F777F0A2C73B01800FD22C8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777F092C73B01800FD22C8 /* OnboardingView.swift */; };
 		3F9EED0C2C7DD11800A412DF /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EED0B2C7DD11800A412DF /* OnboardingCardView.swift */; };
 		3F9EED142C7DF16000A412DF /* TimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EED132C7DF16000A412DF /* TimePeriod.swift */; };
+		3F9EED1C2C7E105800A412DF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9EED1B2C7E105800A412DF /* WidgetKit.framework */; };
+		3F9EED1E2C7E105800A412DF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9EED1D2C7E105800A412DF /* SwiftUI.framework */; };
+		3F9EED212C7E105800A412DF /* WaklKingPathWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EED202C7E105800A412DF /* WaklKingPathWidgetBundle.swift */; };
+		3F9EED232C7E105800A412DF /* WaklKingPathWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EED222C7E105800A412DF /* WaklKingPathWidgetLiveActivity.swift */; };
+		3F9EED252C7E105800A412DF /* WaklKingPathWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EED242C7E105800A412DF /* WaklKingPathWidget.swift */; };
+		3F9EED272C7E105800A412DF /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9EED262C7E105800A412DF /* AppIntent.swift */; };
+		3F9EED292C7E105D00A412DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F9EED282C7E105D00A412DF /* Assets.xcassets */; };
+		3F9EED2D2C7E105D00A412DF /* WaklKingPathWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3F9EED192C7E105700A412DF /* WaklKingPathWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3FC7A7132C68AB4D0071DCAA /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7122C68AB4C0071DCAA /* HealthView.swift */; };
 		3FC7A7172C68AB8B0071DCAA /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7162C68AB8B0071DCAA /* HealthManager.swift */; };
 		3FC7A7192C68B48A0071DCAA /* HealthStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7A7182C68B48A0071DCAA /* HealthStat.swift */; };
@@ -44,7 +52,28 @@
 			remoteGlobalIDString = 3F73185B2C63DB93002220CA;
 			remoteInfo = "walking-path";
 		};
+		3F9EED2B2C7E105D00A412DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F7318542C63DB93002220CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F9EED182C7E105700A412DF;
+			remoteInfo = WaklKingPathWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3F9EED312C7E105D00A412DF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3F9EED2D2C7E105D00A412DF /* WaklKingPathWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3F528D652C720E81002983B0 /* HealthSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSingleView.swift; sourceTree = "<group>"; };
@@ -66,6 +95,16 @@
 		3F777F092C73B01800FD22C8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		3F9EED0B2C7DD11800A412DF /* OnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
 		3F9EED132C7DF16000A412DF /* TimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePeriod.swift; sourceTree = "<group>"; };
+		3F9EED192C7E105700A412DF /* WaklKingPathWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WaklKingPathWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F9EED1B2C7E105800A412DF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3F9EED1D2C7E105800A412DF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3F9EED202C7E105800A412DF /* WaklKingPathWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaklKingPathWidgetBundle.swift; sourceTree = "<group>"; };
+		3F9EED222C7E105800A412DF /* WaklKingPathWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaklKingPathWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		3F9EED242C7E105800A412DF /* WaklKingPathWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaklKingPathWidget.swift; sourceTree = "<group>"; };
+		3F9EED262C7E105800A412DF /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		3F9EED282C7E105D00A412DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F9EED2A2C7E105D00A412DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F9EED322C7E17A800A412DF /* WaklKingPathWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WaklKingPathWidgetExtension.entitlements; sourceTree = "<group>"; };
 		3FC7A7122C68AB4C0071DCAA /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
 		3FC7A7162C68AB8B0071DCAA /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		3FC7A7182C68B48A0071DCAA /* HealthStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStat.swift; sourceTree = "<group>"; };
@@ -95,15 +134,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F9EED162C7E105700A412DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F9EED1E2C7E105800A412DF /* SwiftUI.framework in Frameworks */,
+				3F9EED1C2C7E105800A412DF /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		3F7318532C63DB93002220CA = {
 			isa = PBXGroup;
 			children = (
+				3F9EED322C7E17A800A412DF /* WaklKingPathWidgetExtension.entitlements */,
 				3F73185E2C63DB93002220CA /* walking-path */,
 				3F7318702C63DB98002220CA /* walking-pathTests */,
 				3F73187A2C63DB98002220CA /* walking-pathUITests */,
+				3F9EED1F2C7E105800A412DF /* WaklKingPathWidget */,
+				3F9EED1A2C7E105800A412DF /* Frameworks */,
 				3F73185D2C63DB93002220CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,6 +165,7 @@
 				3F73185C2C63DB93002220CA /* walking-path.app */,
 				3F73186D2C63DB98002220CA /* walking-pathTests.xctest */,
 				3F7318772C63DB98002220CA /* walking-pathUITests.xctest */,
+				3F9EED192C7E105700A412DF /* WaklKingPathWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +228,28 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		3F9EED1A2C7E105800A412DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F9EED1B2C7E105800A412DF /* WidgetKit.framework */,
+				3F9EED1D2C7E105800A412DF /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F9EED1F2C7E105800A412DF /* WaklKingPathWidget */ = {
+			isa = PBXGroup;
+			children = (
+				3F9EED202C7E105800A412DF /* WaklKingPathWidgetBundle.swift */,
+				3F9EED222C7E105800A412DF /* WaklKingPathWidgetLiveActivity.swift */,
+				3F9EED242C7E105800A412DF /* WaklKingPathWidget.swift */,
+				3F9EED262C7E105800A412DF /* AppIntent.swift */,
+				3F9EED282C7E105D00A412DF /* Assets.xcassets */,
+				3F9EED2A2C7E105D00A412DF /* Info.plist */,
+			);
+			path = WaklKingPathWidget;
+			sourceTree = "<group>";
+		};
 		3FC7A7112C68AB230071DCAA /* Health */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,10 +274,12 @@
 				3F7318582C63DB93002220CA /* Sources */,
 				3F7318592C63DB93002220CA /* Frameworks */,
 				3F73185A2C63DB93002220CA /* Resources */,
+				3F9EED312C7E105D00A412DF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3F9EED2C2C7E105D00A412DF /* PBXTargetDependency */,
 			);
 			name = "walking-path";
 			packageProductDependencies = (
@@ -250,6 +326,23 @@
 			productReference = 3F7318772C63DB98002220CA /* walking-pathUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		3F9EED182C7E105700A412DF /* WaklKingPathWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F9EED2E2C7E105D00A412DF /* Build configuration list for PBXNativeTarget "WaklKingPathWidgetExtension" */;
+			buildPhases = (
+				3F9EED152C7E105700A412DF /* Sources */,
+				3F9EED162C7E105700A412DF /* Frameworks */,
+				3F9EED172C7E105700A412DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaklKingPathWidgetExtension;
+			productName = WaklKingPathWidgetExtension;
+			productReference = 3F9EED192C7E105700A412DF /* WaklKingPathWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -270,6 +363,9 @@
 					3F7318762C63DB98002220CA = {
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 3F73185B2C63DB93002220CA;
+					};
+					3F9EED182C7E105700A412DF = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -292,6 +388,7 @@
 				3F73185B2C63DB93002220CA /* walking-path */,
 				3F73186C2C63DB98002220CA /* walking-pathTests */,
 				3F7318762C63DB98002220CA /* walking-pathUITests */,
+				3F9EED182C7E105700A412DF /* WaklKingPathWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -318,6 +415,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F9EED172C7E105700A412DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F9EED292C7E105D00A412DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +465,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3F9EED152C7E105700A412DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F9EED252C7E105800A412DF /* WaklKingPathWidget.swift in Sources */,
+				3F9EED272C7E105800A412DF /* AppIntent.swift in Sources */,
+				3F9EED212C7E105800A412DF /* WaklKingPathWidgetBundle.swift in Sources */,
+				3F9EED232C7E105800A412DF /* WaklKingPathWidgetLiveActivity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -372,6 +488,11 @@
 			isa = PBXTargetDependency;
 			target = 3F73185B2C63DB93002220CA /* walking-path */;
 			targetProxy = 3F7318782C63DB98002220CA /* PBXContainerItemProxy */;
+		};
+		3F9EED2C2C7E105D00A412DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F9EED182C7E105700A412DF /* WaklKingPathWidgetExtension */;
+			targetProxy = 3F9EED2B2C7E105D00A412DF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -499,6 +620,7 @@
 		3F7318822C63DB98002220CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "walking-path/walking_path.entitlements";
@@ -540,6 +662,7 @@
 		3F7318832C63DB98002220CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "walking-path/walking_path.entitlements";
@@ -672,6 +795,67 @@
 			};
 			name = Release;
 		};
+		3F9EED2F2C7E105D00A412DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WaklKingPathWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3C4865S69C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaklKingPathWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WaklKingPathWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.za.openwindow.walking-path.WaklKingPathWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F9EED302C7E105D00A412DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WaklKingPathWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3C4865S69C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WaklKingPathWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WaklKingPathWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "co.za.openwindow.walking-path.WaklKingPathWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -707,6 +891,15 @@
 			buildConfigurations = (
 				3F7318882C63DB98002220CA /* Debug */,
 				3F7318892C63DB98002220CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F9EED2E2C7E105D00A412DF /* Build configuration list for PBXNativeTarget "WaklKingPathWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F9EED2F2C7E105D00A412DF /* Debug */,
+				3F9EED302C7E105D00A412DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
