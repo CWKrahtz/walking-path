@@ -39,17 +39,6 @@ struct HealthSingleView: View {
                 .frame(width: 250, height: 250)
                 .background(item!.color)
                 
-//                VStack{
-                    //            Text(item!.title)
-                    //                .foregroundStyle(Color.white)
-                    //            Text(item!.amount)
-                    //                .foregroundStyle(Color.white)
-                    //            Image(systemName: item!.image)
-                    //                .foregroundStyle(Color.white)
-//                }//VStack - inner end
-//                .background(.secondary)
-//                .padding()
-                
                 Spacer()
                 
             }// VStack - outer end
