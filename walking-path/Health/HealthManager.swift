@@ -65,7 +65,8 @@ class HealthManager: ObservableObject {
     //can refactor code - less code
     //go get the data.
     func getStepCounts(for period: TimePeriod) {
-        // Clear the list before adding new data
+        
+        // Clear the list when selecting a new filter and adding the new list.
         DispatchQueue.main.async {
             self.healthStats.removeAll()
         }
@@ -95,7 +96,7 @@ class HealthManager: ObservableObject {
             DispatchQueue.main.async {
                 self.healthStats.append(HealthStat(
                     title: "Steps",
-                    amount: "\(stepCountValue.rounded(.towardZero)) steps",
+                    amount: stepCountValue.rounded(.towardZero),
                     image: "figure.walk",
                     color: .secondary)
                 )
@@ -113,7 +114,7 @@ class HealthManager: ObservableObject {
             DispatchQueue.main.async {
                 self.healthStats.append(HealthStat(
                     title: "Active Energy",
-                    amount: "\(kcalBurned.rounded()) kcal",
+                    amount: kcalBurned.rounded(),
                     image: "flame.fill",
                     color: .secondary)
                 )
@@ -131,7 +132,7 @@ class HealthManager: ObservableObject {
             DispatchQueue.main.async {
                 self.healthStats.append(HealthStat(
                     title: "Resting Energy",
-                    amount: "\(kcal.rounded()) kcal",
+                    amount: kcal.rounded(),
                     image: "flame",
                     color: .secondary)
                 )
@@ -149,7 +150,7 @@ class HealthManager: ObservableObject {
             DispatchQueue.main.async {
                 self.healthStats.append(HealthStat(
                     title: "Walking + Running",
-                    amount: "\(distance.rounded()) m",
+                    amount: distance.rounded(),
                     image: "figure.run",
                     color: .secondary)
                 )
@@ -167,7 +168,7 @@ class HealthManager: ObservableObject {
             DispatchQueue.main.async {
                 self.healthStats.append(HealthStat(
                     title: "Flights Climbed",
-                    amount: "\(floors)",
+                    amount: floors,
                     image: "figure.stairs",
                     color: .secondary)
                 )
@@ -180,6 +181,17 @@ class HealthManager: ObservableObject {
         healthStore.execute(walkRunQuery)
         healthStore.execute(floorQuery)
     }
+    
+//    func getGraphData(for period: TimePeriod){
+//        //Data I want to put on a gragh
+//        let steps = HKQuantityType(.stepCount) // what we want to access
+//        let activity = HKQuantityType(.activeEnergyBurned)
+//        let resting = HKQuantityType(.basalEnergyBurned)
+//        let walkRun = HKQuantityType(.distanceWalkingRunning)
+//        let floor = HKQuantityType(.flightsClimbed)
+//        
+//        
+//    }
 
     func updateWidget(newSteps: Double)
     {

@@ -45,7 +45,16 @@ struct HealthView: View {
                 
                 List {
                     ForEach(manager.healthStats) { item in
-                        NavigationLink(destination: HealthSingleView(item: item)) {
+                        NavigationLink(
+                            destination: HealthSingleView(
+                                item: item,
+                                dayGoal: 0,
+                                weekGoal: 0,
+                                monthGoal: 0, 
+                                yearGoal: 0,
+                                userProgress: 0,
+                                selectedPeriod: selectedPeriod
+                            )) {
                             HStack {
                                 Text(item.title)
                             }

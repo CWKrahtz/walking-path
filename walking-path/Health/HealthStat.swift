@@ -11,7 +11,7 @@ import SwiftUI
 struct HealthStat: Identifiable {
     let id = UUID()
     let title: String //What is the health
-    let amount: String
+    let amount: Double
     let image: String
     let color: Color
 }
