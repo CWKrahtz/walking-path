@@ -61,13 +61,17 @@ struct WaklKingPathWidgetEntryView : View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(.white)
                 
-                Text("\(entry.steps) Steps")
+                Text("\(entry.steps.formatted()) Steps")
                     .font(.headline)
                     .padding(5)
+                    .foregroundColor(.white)
                 
                 //display time
                 Text("Today")
+                    .foregroundColor(.white)
+                
                 Text(entry.date, style: .date)
+                    .foregroundColor(.white)
             }
             
         case .systemMedium:
@@ -78,12 +82,14 @@ struct WaklKingPathWidgetEntryView : View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(.white)
                 
-                Text("\(entry.steps) Steps")
+                Text("\(entry.steps.formatted()) Steps")
                     .font(.headline)
                     .padding(5)
+                    .foregroundColor(.white)
                 
                 //display time
                 Text(entry.date, style: .date)
+                    .foregroundColor(.white)
             }
             
         case .systemLarge:
@@ -94,13 +100,17 @@ struct WaklKingPathWidgetEntryView : View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(.white)
                 
-                Text("\(entry.steps) Steps")
+                Text("\(entry.steps.formatted()) Steps")
                     .font(.headline)
                     .padding(5)
+                    .foregroundColor(.white)
                 
                 //display time
                 Text("Today")
+                    .foregroundColor(.white)
+                
                 Text(entry.date, style: .date)
+                    .foregroundColor(.white)
             }
             
         case .systemExtraLarge:
@@ -111,13 +121,17 @@ struct WaklKingPathWidgetEntryView : View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(.white)
                 
-                Text("\(entry.steps) Steps")
+                Text("\(entry.steps.formatted()) Steps")
                     .font(.headline)
                     .padding(5)
+                    .foregroundColor(.white)
                 
                 //display time
                 Text("Today")
+                    .foregroundColor(.white)
+                
                 Text(entry.date, style: .date)
+                    .foregroundColor(.white)
             }
             
         case .accessoryCircular:
@@ -128,9 +142,10 @@ struct WaklKingPathWidgetEntryView : View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(.white)
                 
-                Text("\(entry.steps)")
+                Text("\(entry.steps.formatted())")
                     .font(.headline)
                     .padding(5)
+                    .foregroundColor(.white)
             }
             
         case .accessoryRectangular:
@@ -141,9 +156,10 @@ struct WaklKingPathWidgetEntryView : View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(.white)
                 
-                Text("\(entry.steps) Steps")
+                Text("\(entry.steps.formatted()) Steps")
                     .font(.headline)
                     .padding(2)
+                    .foregroundColor(.white)
             }
             
         case .accessoryInline:
@@ -154,9 +170,10 @@ struct WaklKingPathWidgetEntryView : View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(.white)
                 
-                Text("\(entry.steps) Steps")
+                Text("\(entry.steps.formatted()) Steps")
                     .font(.headline)
                     .padding(5)
+                    .foregroundColor(.white)
             }
             
         @unknown default:
@@ -167,13 +184,17 @@ struct WaklKingPathWidgetEntryView : View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(.white)
                 
-                Text("\(entry.steps) Steps")
+                Text("\(entry.steps.formatted()) Steps")
                     .font(.headline)
                     .padding(5)
+                    .foregroundColor(.white)
                 
                 //display time
                 Text("Today")
+                    .foregroundColor(.white)
+                
                 Text(entry.date, style: .date)
+                    .foregroundColor(.white)
             }
             
         }
@@ -187,7 +208,7 @@ struct WaklKingPathWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             WaklKingPathWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+                .containerBackground(Color("WidgetBackground"), for: .widget)
         }
     }
 }

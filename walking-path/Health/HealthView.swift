@@ -52,6 +52,7 @@ struct HealthView: View {
                                 weekGoal: 0,
                                 monthGoal: 0, 
                                 yearGoal: 0,
+                                periodSelected: "",
                                 userProgress: 0,
                                 selectedPeriod: selectedPeriod
                             )) {

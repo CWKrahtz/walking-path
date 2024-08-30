@@ -17,6 +17,8 @@ struct HealthSingleView: View {
     @State var monthGoal: Double
     @State var yearGoal: Double
     
+    @State var periodSelected = ""
+    
     @State var userProgress: Double
     
     var selectedPeriod: TimePeriod
@@ -71,12 +73,16 @@ struct HealthSingleView: View {
         switch selectedPeriod {
             case .day:
                 userProgress = (amount / dayGoal) * 100
+            periodSelected = "\(item!.title) / Day"
             case .week:
                 userProgress = (amount / weekGoal) * 100
+                periodSelected = "\(item!.title) / Week"
             case .month:
                 userProgress = (amount / monthGoal) * 100
+                periodSelected = "\(item!.title) / Month"
             case .year:
                 userProgress = (amount / yearGoal) * 100
+                periodSelected = "\(item!.title) / Year"
         }
     }
     
@@ -85,37 +91,34 @@ struct HealthSingleView: View {
         
             VStack{
                 Text("")
-                    .navigationTitle(item!.title)
-                    .navigationBarTitleDisplayMode(.inline)
+                    .navigationTitle(periodSelected)
+                    .navigationBarTitleDisplayMode(.large)
                 
-                VStack{
+                VStack(spacing: 0){
                     Text("Total of")
                         .foregroundStyle(Color.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.title2)
+                    
                     HStack{
-                        Text("\(item!.amount.rounded(.towardZero))")
+                        Text("\(item!.amount.formatted())")
+                            .font(.title)
                         Text(item!.title)
                             .foregroundStyle(Color.secondary)
+                            .font(.title)
                         Image(systemName: item!.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    
                 }
                 .padding()
     
                 //Grid + data
                     GeometryReader{ metrics in
                         ZStack(alignment: .leading){
-                            ZStack{
-                                //progress bar
-                                Capsule(style: .continuous)
-                                    .fill(.blue)
-                                    .frame(width: metrics.size.width * (userProgress / 100), height: 50)
-                                
-                                //progress text
-                                Text("\(String(format: "%.2f", userProgress))%")
-                                    .foregroundColor(.white)
-                            }//ZStack progress - end
-                            
                             ZStack(alignment: .trailing){
                                 //Goal bar
                                 Capsule(style: .continuous)
@@ -123,9 +126,29 @@ struct HealthSingleView: View {
                                     .frame(width: .infinity, height: 50)
                                 
                                 Text("\(String(format: "%.2f", (100 - userProgress)))%")
-                                    .padding()
                                     .foregroundColor(.white)
+                                    .padding()
+                                    
                             }//ZStack Goal - end
+                            
+                            ZStack{
+                                
+                                Capsule(style: .continuous)
+                                    .fill(.blue)
+                                    .frame(width: metrics.size.width * 0.25, height: 50)
+                                
+                                //progress bar
+                                Capsule(style: .continuous)
+                                    .fill(.blue)
+                                    .frame(maxWidth: metrics.size.width * (userProgress / 100), idealHeight: 50, maxHeight: 50)
+                                
+                                //progress text
+                                Text("\(String(format: "%.2f", userProgress))%")
+                                    .foregroundColor(Color("Progress"))
+                                    .padding()
+                            }//ZStack progress - end
+                            
+                            
                         }//ZStack - end
                         .padding()
                     }//Geometry - end
