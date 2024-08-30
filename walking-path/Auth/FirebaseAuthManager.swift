@@ -18,9 +18,6 @@ class FirebaseAuthManager: ObservableObject {
     
     func login () {
         
-//        do { try Auth.auth().signOut() }
-//        catch { print("already logged out") }
-        
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             
             if error != nil {
@@ -51,8 +48,6 @@ class FirebaseAuthManager: ObservableObject {
             if authResult != nil {
                 self.isAuthenticated = true
                 print("Signed up USER: \(authResult!.user.uid)")
-                
-                //TODO: link user to firestore with user.uid
             }
             
         }

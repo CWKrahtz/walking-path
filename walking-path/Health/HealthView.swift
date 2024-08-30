@@ -87,21 +87,6 @@ struct HealthView: View {
             SettingsSheet()
         }
         
-//        VStack {
-//            ForEach(manager.healthStats){tracking in
-//                VStack{
-//                    Text(tracking.title)
-//                        .foregroundStyle(Color.white)
-//                    Text(tracking.amount)
-//                        .foregroundStyle(Color.white)
-//                    Image(systemName: tracking.image)
-//                        .foregroundStyle(Color.white)
-//                }
-//                .background(tracking.color)
-//                .padding()
-//            }
-//        }
-//        .padding()
     }
 }
 
